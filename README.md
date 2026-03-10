@@ -1,4 +1,4 @@
-# OC Cockpit
+# OC Command
 
 Lightweight control plane for OpenClaw. Organize projects, manage agent configurations, track deliverables, and monitor activity — all in one place.
 

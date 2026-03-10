@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'OC Cockpit',
+  title: 'OC Command',
   description: 'Lightweight control plane for OpenClaw',
 }
 

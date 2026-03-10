@@ -5,8 +5,8 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 const mockProjects = [
   {
-    id: 'oc-cockpit',
-    name: 'OC Cockpit',
+    id: 'oc-command',
+    name: 'OC Command',
     description: 'Lightweight control plane UI for OpenClaw agent orchestration runtime.',
     agents: ['M', 'S'],
     openTasks: 7,
