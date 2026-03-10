@@ -5,11 +5,16 @@ const TOKEN = process.env.OC_GATEWAY_TOKEN ?? ''
 const COOKIE_NAME = 'oc_auth'
 const LOGIN_PATH = '/login'
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Always allow login page and its assets
-  if (pathname === LOGIN_PATH || pathname.startsWith('/_next') || pathname === '/favicon.ico') {
+  // Always allow login page, API routes, and static assets
+  if (
+    pathname === LOGIN_PATH ||
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/_next') ||
+    pathname === '/favicon.ico'
+  ) {
     return NextResponse.next()
   }
 
