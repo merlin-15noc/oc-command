@@ -14,7 +14,7 @@ export default function CockpitLayout({
         <AppSidebar />
         <SidebarInset>
           <SiteHeader />
-          <main className="flex flex-1 flex-col gap-4 p-4">
+          <main className="flex flex-1 flex-col gap-6 p-6 md:p-8 lg:p-10">
             {children}
           </main>
         </SidebarInset>
