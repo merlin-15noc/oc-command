@@ -2,10 +2,7 @@ name: oc-command
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: oc-command:latest
+    image: ghcr.io/merlin-15noc/oc-command:latest
     container_name: oc-command
     restart: unless-stopped
     environment:
@@ -25,6 +22,19 @@ services:
       - "traefik.http.services.oc-command.loadbalancer.server.port=3000"
     networks:
       - openclaw_shared
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - REPO_USER=${GHCR_USER:-merlin-15noc}
+      - REPO_PASS=${GHCR_TOKEN}
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_INCLUDE_STOPPED=false
+      - WATCHTOWER_POLL_INTERVAL=300
+    command: oc-command
+    restart: unless-stopped
 
 networks:
   openclaw_shared:
