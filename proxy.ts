@@ -5,7 +5,7 @@ const TOKEN = process.env.OC_GATEWAY_TOKEN ?? ''
 const COOKIE_NAME = 'oc_auth'
 const LOGIN_PATH = '/login'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Always allow login page, API routes, and static assets

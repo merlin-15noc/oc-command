@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import Image from 'next/image'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, MessageSquare } from 'lucide-react'
 
@@ -9,6 +10,7 @@ const mockAgents: {
   id: string
   name: string
   initial: string
+  avatar: string
   avatarColor: string
   status: AgentStatus
   model: string
@@ -19,6 +21,7 @@ const mockAgents: {
     id: 'merlin',
     name: 'Merlin',
     initial: 'M',
+    avatar: '/avatars/atlas.png',
     avatarColor: 'bg-blue-500/20 text-blue-400',
     status: 'Active',
     model: 'anthropic/claude-sonnet-4-6',
@@ -29,6 +32,7 @@ const mockAgents: {
     id: 'scout',
     name: 'Scout',
     initial: 'S',
+    avatar: '/avatars/scout.png',
     avatarColor: 'bg-violet-500/20 text-violet-400',
     status: 'Idle',
     model: 'anthropic/claude-sonnet-4-6',
@@ -39,6 +43,7 @@ const mockAgents: {
     id: 'canvas',
     name: 'Canvas',
     initial: 'C',
+    avatar: '/avatars/canvas.png',
     avatarColor: 'bg-emerald-500/20 text-emerald-400',
     status: 'Idle',
     model: 'anthropic/claude-sonnet-4-6',
@@ -49,6 +54,7 @@ const mockAgents: {
     id: 'forge',
     name: 'Forge',
     initial: 'F',
+    avatar: '/avatars/forge.png',
     avatarColor: 'bg-orange-500/20 text-orange-400',
     status: 'Idle',
     model: 'anthropic/claude-sonnet-4-6',
@@ -59,9 +65,10 @@ const mockAgents: {
     id: 'helm',
     name: 'Helm',
     initial: 'H',
+    avatar: '/avatars/helm.png',
     avatarColor: 'bg-slate-500/20 text-slate-400',
     status: 'Stale',
-    model: 'anthropic/claude-sonnet-4-6',
+    model: 'google/gemini-2.5-flash-lite',
     lastActive: '3d ago',
     heartbeat: '72h',
   },
@@ -69,11 +76,23 @@ const mockAgents: {
     id: 'orion',
     name: 'Orion',
     initial: 'O',
+    avatar: '/avatars/atlas.png',
     avatarColor: 'bg-rose-500/20 text-rose-400',
     status: 'Idle',
     model: 'anthropic/claude-sonnet-4-6',
     lastActive: '2d ago',
     heartbeat: '48h',
+  },
+  {
+    id: 'dispatch',
+    name: 'Dispatch',
+    initial: 'D',
+    avatar: '/avatars/dispatch.png',
+    avatarColor: 'bg-cyan-500/20 text-cyan-400',
+    status: 'Idle',
+    model: 'anthropic/claude-sonnet-4-6',
+    lastActive: '2d ago',
+    heartbeat: '24h',
   },
 ]
 
@@ -127,6 +146,7 @@ export default function AgentsPage() {
               {/* Top row */}
               <div className="flex items-center gap-3">
                 <Avatar className="size-10 rounded-md shrink-0">
+                  <AvatarImage src={agent.avatar} alt={agent.name} className="rounded-md object-cover" />
                   <AvatarFallback className={`rounded-md text-sm font-semibold ${agent.avatarColor}`}>
                     {agent.initial}
                   </AvatarFallback>
