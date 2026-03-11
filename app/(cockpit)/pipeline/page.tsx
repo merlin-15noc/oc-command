@@ -42,37 +42,37 @@ export default function PipelinePage() {
       {/* Centered content */}
       <div className="relative flex flex-col items-center gap-8 px-4 text-center">
         <div className="flex flex-col items-center gap-3">
-          <h1 className="text-4xl font-bold tracking-tight gradient-text">Pipeline</h1>
-          <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+          <h1 className="font-bold tracking-tight gradient-text">Pipeline</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
             Chain agents, define handoffs, trigger conditions. Visual workflow orchestration powered by OpenClaw&apos;s Lobster routing.
           </p>
-          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/10 text-xs">
+          <Badge variant="outline" className="border-primary/30 text-primary bg-primary/10 text-sm px-3 py-1">
             Planned
           </Badge>
         </div>
 
         {/* Feature preview cards */}
-        <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
-          <div className="flex-1 rounded-lg border border-border bg-card p-4 text-left hover:border-primary/30 transition-colors duration-200">
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-3xl">
+          <div className="flex-1 rounded-xl border border-border bg-card p-6 text-left hover:border-primary/30 transition-colors duration-200">
             <div className="flex items-center gap-2 mb-2">
-              <div className="flex size-7 items-center justify-center rounded-md bg-blue-500/10">
-                <Layers className="size-3.5 text-blue-400" />
+              <div className="flex size-9 items-center justify-center rounded-lg bg-blue-500/10">
+                <Layers className="size-4 text-blue-400" />
               </div>
-              <span className="text-xs font-semibold text-foreground">Task Chaining</span>
+              <span className="text-lg font-semibold text-foreground">Task Chaining</span>
             </div>
-            <p className="text-[11px] text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Sequential or parallel task flows with conditional branching and error recovery.
             </p>
           </div>
 
-          <div className="flex-1 rounded-lg border border-border bg-card p-4 text-left hover:border-primary/30 transition-colors duration-200">
+          <div className="flex-1 rounded-xl border border-border bg-card p-6 text-left hover:border-primary/30 transition-colors duration-200">
             <div className="flex items-center gap-2 mb-2">
-              <div className="flex size-7 items-center justify-center rounded-md bg-violet-500/10">
-                <Zap className="size-3.5 text-violet-400" />
+              <div className="flex size-9 items-center justify-center rounded-lg bg-violet-500/10">
+                <Zap className="size-4 text-violet-400" />
               </div>
-              <span className="text-xs font-semibold text-foreground">Lobster Integration</span>
+              <span className="text-lg font-semibold text-foreground">Lobster Integration</span>
             </div>
-            <p className="text-[11px] text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Native OpenClaw Lobster routing — smart agent dispatch with context-aware handoffs.
             </p>
           </div>

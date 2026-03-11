@@ -193,7 +193,7 @@ export default function AgentsPage() {
                 {/* Status pill — top right, always visible */}
                 <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-2.5 py-1 backdrop-blur-sm">
                   <span className={`size-1.5 rounded-full ${status.dotClass}`} />
-                  <span className={`text-[11px] font-medium ${status.labelClass}`}>{status.label}</span>
+                  <span className={`text-sm font-medium ${status.labelClass}`}>{status.label}</span>
                 </div>
 
                 {/* Bottom-justified content */}
@@ -203,11 +203,11 @@ export default function AgentsPage() {
                     <h3 className="text-base font-bold text-white leading-tight drop-shadow-lg">
                       {agent.name}
                     </h3>
-                    <p className="text-[11px] text-white/55 mt-0.5">{agent.domain}</p>
+                    <p className="text-sm text-white/55 mt-0.5">{agent.domain}</p>
                   </div>
 
                   {/* Stats row */}
-                  <div className="flex items-center gap-3 text-[11px] text-white/50">
+                  <div className="flex items-center gap-3 text-sm text-white/50">
                     <span>{agent.lastActive}</span>
                     <span className="text-white/25">·</span>
                     <span>HB {agent.heartbeat}</span>
@@ -223,7 +223,7 @@ export default function AgentsPage() {
                           boxShadow: `0 0 5px ${agent.borderColor}`,
                         }}
                       />
-                      <span className="font-mono text-[10px] text-white/45 truncate">
+                      <span className="font-mono text-xs text-white/45 truncate">
                         {agent.model}
                       </span>
                     </div>

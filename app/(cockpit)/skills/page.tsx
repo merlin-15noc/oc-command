@@ -49,8 +49,8 @@ export default function SkillsPage() {
     <div className="flex flex-col gap-4 h-full">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">Skills</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Browse and inspect agent skill definitions.</p>
+        <h1 className="font-bold tracking-tight text-foreground">Skills</h1>
+        <p className="mt-2 text-base text-muted-foreground">Browse and inspect agent skill definitions.</p>
       </div>
 
       {/* Two-panel layout */}
@@ -60,12 +60,12 @@ export default function SkillsPage() {
           {/* Search */}
           <div className="p-3 border-b border-border">
             <div className="relative">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
               <Input
                 placeholder="Search skills..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="h-8 pl-8 text-xs bg-background border-border focus-visible:ring-primary/30"
+                className="h-10 pl-9 text-base bg-background border-border focus-visible:ring-primary/30"
               />
             </div>
           </div>
@@ -80,11 +80,11 @@ export default function SkillsPage() {
                   <div key={group.category} className="mb-4">
                     {/* Group header */}
                     <div className="flex items-center gap-1.5 px-2 py-1 mb-1">
-                      <span className="text-[10px]">{group.icon}</span>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                      <span className="text-sm">{group.icon}</span>
+                      <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                         {group.label}
                       </span>
-                      <span className="ml-auto rounded-sm bg-muted px-1 py-0.5 text-[9px] font-medium text-muted-foreground">
+                      <span className="ml-auto rounded-sm bg-muted px-1 py-0.5 text-xs font-medium text-muted-foreground">
                         {groupSkills.length}
                       </span>
                     </div>
@@ -104,8 +104,8 @@ export default function SkillsPage() {
                           ].join(' ')}
                         >
                           <span className={`size-1.5 shrink-0 rounded-full ${skill.dotColor}`} />
-                          <span className="flex-1 truncate font-mono text-[11px]">{skill.name}</span>
-                          <span className="shrink-0 text-[9px] text-muted-foreground/60">{skill.version}</span>
+                          <span className="flex-1 truncate font-mono text-sm">{skill.name}</span>
+                          <span className="shrink-0 text-xs text-muted-foreground/60">{skill.version}</span>
                         </button>
                       )
                     })}
@@ -124,14 +124,14 @@ export default function SkillsPage() {
               <div className="flex items-center gap-3 border-b border-border px-6 py-4">
                 <span className={`size-2 rounded-full ${selectedSkill.dotColor}`} />
                 <h2 className="text-base font-semibold text-foreground font-mono">{selectedSkill.name}</h2>
-                <span className="rounded-sm bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                <span className="rounded-sm bg-muted px-1.5 py-0.5 text-sm font-medium text-muted-foreground">
                   v{selectedSkill.version}
                 </span>
               </div>
               {/* Content placeholder */}
               <ScrollArea className="flex-1 p-6">
                 <div className="rounded-md border border-border bg-muted/20 p-4">
-                  <p className="text-xs text-muted-foreground font-mono leading-relaxed">
+                  <p className="text-base text-muted-foreground font-mono leading-relaxed">
                     # {selectedSkill.name}{'\n\n'}
                     SKILL.md content would render here.{'\n'}
                     Select a skill to view its definition, tools, and behavioral guidelines.
@@ -142,12 +142,12 @@ export default function SkillsPage() {
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-4 p-8">
               {/* Hexagon icon */}
-              <div className="flex size-16 items-center justify-center rounded-xl border border-border bg-muted/30 text-3xl">
+              <div className="flex size-16 items-center justify-center rounded-xl border border-border bg-muted/30 text-4xl">
                 ⬡
               </div>
               <div className="text-center">
-                <p className="text-sm font-medium text-foreground">Select a skill</p>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="text-lg font-semibold text-foreground">Select a skill</p>
+                <p className="mt-1 text-base text-muted-foreground">
                   Choose a skill from the list to view its SKILL.md definition.
                 </p>
               </div>

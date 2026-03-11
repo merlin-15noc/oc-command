@@ -65,23 +65,23 @@ export default function ProjectsPage() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Projects</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Your agent-driven workspaces.</p>
+          <h1 className="font-bold tracking-tight text-foreground">Projects</h1>
+          <p className="mt-2 text-base text-muted-foreground">Your agent-driven workspaces.</p>
           {/* Stats row */}
           <div className="mt-3 flex items-center gap-2">
-            <span className="rounded-md border border-border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground">
+            <span className="rounded-md border border-border bg-muted/40 px-3 py-1 text-sm text-muted-foreground">
               3 active
             </span>
-            <span className="rounded-md border border-border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground">
+            <span className="rounded-md border border-border bg-muted/40 px-3 py-1 text-sm text-muted-foreground">
               22 open tasks
             </span>
-            <span className="rounded-md border border-border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground">
+            <span className="rounded-md border border-border bg-muted/40 px-3 py-1 text-sm text-muted-foreground">
               Last updated 2h ago
             </span>
           </div>
         </div>
-        <Button size="sm" className="shrink-0 gap-1.5">
-          <Plus className="size-3.5" />
+        <Button size="default" className="shrink-0 gap-2 text-base px-5 py-5">
+          <Plus className="size-4" />
           New Project
         </Button>
       </div>
@@ -100,8 +100,8 @@ export default function ProjectsPage() {
               {/* Body */}
               <div className="flex flex-1 flex-col gap-4 p-4 pt-3">
                 <div>
-                  <h2 className="text-sm font-semibold text-foreground">{project.name}</h2>
-                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{project.description}</p>
+                  <h2 className="text-xl font-semibold text-foreground">{project.name}</h2>
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">{project.description}</p>
                 </div>
 
                 {/* Mini kanban */}
@@ -109,7 +109,7 @@ export default function ProjectsPage() {
                   {project.kanban.map((col) => (
                     <span
                       key={col.label}
-                      className={`rounded-sm px-1.5 py-0.5 text-[10px] font-medium ${col.color}`}
+                      className={`rounded-sm px-2.5 py-1 text-sm font-medium ${col.color}`}
                     >
                       {col.count} {col.label}
                     </span>
@@ -123,9 +123,9 @@ export default function ProjectsPage() {
                     {project.agents.map((agent) => (
                       <Avatar
                         key={agent.initial}
-                        className="size-6 rounded-full border border-border ring-0 transition-all group-hover:ring-1 group-hover:ring-primary/50"
+                        className="size-8 rounded-full border border-border ring-0 transition-all group-hover:ring-1 group-hover:ring-primary/50"
                       >
-                        <AvatarFallback className={`text-[10px] font-semibold ${agent.color}`}>
+                        <AvatarFallback className={`text-sm font-semibold ${agent.color}`}>
                           {agent.initial}
                         </AvatarFallback>
                       </Avatar>
@@ -133,8 +133,8 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] text-muted-foreground">{project.lastActivity}</span>
-                    <ArrowRight className="size-3.5 text-muted-foreground transition-colors group-hover:text-primary" />
+                    <span className="text-sm text-muted-foreground">{project.lastActivity}</span>
+                    <ArrowRight className="size-4 text-muted-foreground transition-colors group-hover:text-primary" />
                   </div>
                 </div>
               </div>

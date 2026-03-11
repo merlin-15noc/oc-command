@@ -39,8 +39,8 @@ export function AppSidebar() {
                   ⬡
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
-                  <span className="truncate text-sm font-semibold text-sidebar-foreground">OC Command</span>
-                  <span className="truncate text-xs text-muted-foreground">OpenClaw Control Plane</span>
+                  <span className="truncate text-base font-semibold text-sidebar-foreground">OC Command</span>
+                  <span className="truncate text-sm text-muted-foreground">OpenClaw Control Plane</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -64,7 +64,7 @@ export function AppSidebar() {
                       isActive={isActive}
                       tooltip={item.label}
                       className={[
-                        'relative h-9 gap-3 rounded-md px-3 text-sm font-medium transition-all duration-150',
+                        'relative h-11 gap-3 rounded-md px-3 text-base font-medium transition-all duration-150',
                         isActive
                           ? 'bg-primary/10 text-primary before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-0.5 before:rounded-full before:bg-primary'
                           : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
@@ -76,7 +76,7 @@ export function AppSidebar() {
                         />
                         <span className="flex-1">{item.label}</span>
                         {item.soon && (
-                          <span className="ml-auto rounded-sm bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                          <span className="ml-auto rounded-sm bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
                             Soon
                           </span>
                         )}
@@ -98,7 +98,7 @@ export function AppSidebar() {
             <SidebarMenuButton
               asChild
               tooltip="Settings"
-              className="h-9 gap-3 rounded-md px-3 text-sm font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-all duration-150"
+              className="h-11 gap-3 rounded-md px-3 text-base font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-all duration-150"
             >
               <Link href="/settings" className="flex items-center gap-3">
                 <Settings className="size-4 shrink-0 text-muted-foreground" />
@@ -109,16 +109,16 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              className="h-12 gap-3 rounded-md px-3 hover:bg-muted/50 transition-all duration-150"
+              className="h-14 gap-3 rounded-md px-3 hover:bg-muted/50 transition-all duration-150"
             >
-              <Avatar className="size-7 shrink-0 rounded-md">
-                <AvatarFallback className="rounded-md bg-primary/20 text-primary text-xs font-semibold">
+              <Avatar className="size-8 shrink-0 rounded-md">
+                <AvatarFallback className="rounded-md bg-primary/20 text-primary text-sm font-semibold">
                   V
                 </AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
+              <div className="grid flex-1 text-left text-base leading-tight">
                 <span className="truncate font-semibold text-foreground">heyviet</span>
-                <span className="truncate text-xs text-muted-foreground">Owner</span>
+                <span className="truncate text-sm text-muted-foreground">Owner</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
