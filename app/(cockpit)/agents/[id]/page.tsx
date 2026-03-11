@@ -4,21 +4,40 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const tabs = ['identity', 'skills-tools', 'activity', 'scheduled-tasks', 'domain-resources'] as const
 
+const agentAvatarMap: Record<string, string> = {
+  merlin: '/avatars/atlas.png',
+  scout: '/avatars/scout.png',
+  canvas: '/avatars/canvas.png',
+  forge: '/avatars/forge.png',
+  helm: '/avatars/helm.png',
+  orion: '/avatars/atlas.png',
+  dispatch: '/avatars/dispatch.png',
+}
+
 export default async function AgentDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const agentName = id.charAt(0).toUpperCase() + id.slice(1)
+  const avatar = agentAvatarMap[id] ?? '/avatars/atlas.png'
 
   return (
     <div className="flex flex-col gap-8">
       <section className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 md:p-8">
         <div className="pointer-events-none absolute inset-0 mesh-purple opacity-40" />
-        <div className="relative z-10">
-          <h1 className="font-bold tracking-tight text-foreground">{agentName}</h1>
-          <p className="mt-2 text-base md:text-lg text-muted-foreground">Agent profile and execution intelligence.</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Badge className="text-sm px-3 py-1 bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Active</Badge>
-            <Badge variant="secondary" className="text-sm px-3 py-1">anthropic/claude-sonnet-4-6</Badge>
-            <Badge variant="outline" className="text-sm px-3 py-1">Role: Specialist</Badge>
+        <div className="relative z-10 grid gap-5 md:grid-cols-[1fr_180px] md:items-end">
+          <div>
+            <h1 className="font-bold tracking-tight text-foreground">{agentName}</h1>
+            <p className="mt-2 text-base md:text-lg text-muted-foreground">Agent profile and execution intelligence.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Badge className="text-sm px-3 py-1 bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Active</Badge>
+              <Badge variant="secondary" className="text-sm px-3 py-1">anthropic/claude-sonnet-4-6</Badge>
+              <Badge variant="outline" className="text-sm px-3 py-1">Role: Specialist</Badge>
+            </div>
+          </div>
+          <div className="justify-self-start md:justify-self-end">
+            <div className="relative h-40 w-32 md:h-48 md:w-36 overflow-hidden rounded-xl border border-border/70 bg-black/30 blue-glow">
+              <img src={avatar} alt={agentName} className="h-full w-full object-cover object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+            </div>
           </div>
         </div>
       </section>

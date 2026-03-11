@@ -56,7 +56,7 @@ export default function SkillsPage() {
       {/* Two-panel layout */}
       <div className="flex gap-0 overflow-hidden rounded-lg border border-border bg-card" style={{ height: 'calc(100vh - 14rem)' }}>
         {/* Left panel */}
-        <div className="w-72 shrink-0 flex flex-col border-r border-border">
+        <div className="w-[32rem] max-w-[48vw] shrink-0 flex flex-col border-r border-border">
           {/* Search */}
           <div className="p-3 border-b border-border">
             <div className="relative">
@@ -104,7 +104,7 @@ export default function SkillsPage() {
                           ].join(' ')}
                         >
                           <span className={`size-1.5 shrink-0 rounded-full ${skill.dotColor}`} />
-                          <span className="flex-1 truncate font-mono text-sm">{skill.name}</span>
+                          <span className="flex-1 font-mono text-sm leading-snug break-all">{skill.name}</span>
                           <span className="shrink-0 text-xs text-muted-foreground/60">{skill.version}</span>
                         </button>
                       )
