@@ -17,28 +17,36 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     .join(' ')
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">{projectName}</h1>
-        <p className="text-sm text-muted-foreground mt-1">Project workspace</p>
+        <h1 className="font-bold tracking-tight text-foreground">{projectName}</h1>
+        <p className="text-base text-muted-foreground mt-2">Project workspace</p>
       </div>
-      <Tabs defaultValue="docs">
-        <TabsList>
+
+      <Tabs defaultValue="docs" className="space-y-5">
+        <TabsList className="h-auto flex-wrap gap-2 bg-transparent p-0">
           {tabs.map((tab) => (
-            <TabsTrigger key={tab.value} value={tab.value}>
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className="rounded-md border border-border bg-card px-4 py-2.5 text-base data-[state=active]:border-primary/40 data-[state=active]:bg-primary/10"
+            >
               {tab.label}
             </TabsTrigger>
           ))}
         </TabsList>
+
         {tabs.map((tab) => (
           <TabsContent key={tab.value} value={tab.value}>
-            <Card>
-              <CardHeader>
-                <CardTitle>{tab.label}</CardTitle>
-                <CardDescription>{tab.description}</CardDescription>
+            <Card className="rounded-xl border-border/80">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-2xl font-semibold tracking-tight">{tab.label}</CardTitle>
+                <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                  {tab.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   No {tab.label.toLowerCase()} yet. Agents will populate this section as work progresses.
                 </p>
               </CardContent>

@@ -20,20 +20,19 @@ services:
       - "traefik.http.routers.oc-command.tls=true"
       - "traefik.http.routers.oc-command.tls.certresolver=letsencrypt"
       - "traefik.http.services.oc-command.loadbalancer.server.port=3000"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - openclaw_shared
 
   watchtower:
     image: containrrr/watchtower
+    container_name: oc-command-watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - REPO_USER=${GHCR_USER:-merlin-15noc}
       - REPO_PASS=${GHCR_TOKEN}
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_INCLUDE_STOPPED=false
-      - WATCHTOWER_POLL_INTERVAL=300
-    command: oc-command
+    command: --label-enable --cleanup --interval 60 --rolling-restart
     restart: unless-stopped
 
 networks:
